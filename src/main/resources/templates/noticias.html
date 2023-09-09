@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Notícias</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="menu">
+    <a href="#">Cadastrar Notícias</a>
+    <a href="#">Exibir Notícias</a>
+</div>
+<div class="container">
+    <h1>Gerenciamento de Notícias</h1>
+    <form>
+        <div class="form-group">
+            <label for="titulo">TÍTULO</label>
+            <input type="text" id="titulo" name="titulo" required>
+        </div>
+        <div class="form-group">
+            <label for="categoria">CATEGORIA</label>
+            <select id="categoria" name="categoria" required>
+                <option value="politica">Política</option>
+                <option value="esportes">Esportes</option>
+                <option value="tecnologia">Tecnologia</option>
+                <option value="entretenimento">Entretenimento</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="conteudo">Conteúdo da Notícia</label>
+            <textarea id="conteudo" name="conteudo" required></textarea>
+        </div>
+        <button type="submit">Enviar</button>
+    </form>
+</div>
+</body>
+</html>
