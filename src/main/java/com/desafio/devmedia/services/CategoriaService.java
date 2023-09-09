@@ -5,6 +5,7 @@ import com.desafio.devmedia.repository.CategoriaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CategoriaService {
@@ -21,6 +22,12 @@ public class CategoriaService {
 
     public List<Categoria> listar() {
         return categoriaRepository.findAll();
+    }
+
+    public Categoria nome(String nome) {
+        Categoria categoria = categoriaRepository.categoria(nome);
+
+        return categoria;
     }
 
 }

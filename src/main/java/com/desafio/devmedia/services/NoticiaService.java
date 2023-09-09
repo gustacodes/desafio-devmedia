@@ -23,4 +23,8 @@ public class NoticiaService {
         return noticiasRepository.findAll();
     }
 
+    public List<Noticias> buscarPorNome(String busca) {
+        return noticiasRepository.buscarPorTituloContendo(busca);
+    }
+
 }

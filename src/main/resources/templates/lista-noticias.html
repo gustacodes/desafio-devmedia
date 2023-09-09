@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Notícias</title>
+    <link rel="stylesheet" href="style-lista.css">
+</head>
+<body>
+<div class="menu">
+    <a th:href="@{/noticias}">Cadastrar Notícias</a>
+    <a th:href="@{/categoria}">Nova Categoria</a>
+</div>
+<div class="container">
+    <h1>Lista de Notícias</h1>
+    <form action="/lista-noticias" method="get">
+        <div class="search">
+            <input type="text" name="busca" placeholder="Buscar notícia...">
+            <button id="search-button" type="submit">Buscar</button>
+        </div>
+    </form>
+
+    <div class="noticias-container">
+        <!-- Card de exemplo (replicar conforme necessário) -->
+        <div class="noticia-card" th:each="noticias : ${todas}">
+            <h2>[[${noticias.titulo}]]</h2>
+            <span>[[${noticias.categoria.categoria}]]</span>
+            <p>[[${noticias.conteudo}]]</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
