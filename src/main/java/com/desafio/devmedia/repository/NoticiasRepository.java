@@ -14,7 +14,7 @@ public interface NoticiasRepository extends JpaRepository<Noticias, Long> {
     @Query(value = "SELECT * FROM noticias WHERE titulo ILIKE %:busca%", nativeQuery = true)
     List<Noticias> buscarPorTituloContendo(@Param("busca") String busca);
 
-    @Query(value = "SELECT * FROM noticias ORDER BY id DESC" , nativeQuery = true)
+    @Query(value = "SELECT * FROM noticias ORDER BY id DESC", nativeQuery = true)
     List<Noticias> findAll();
 
 }

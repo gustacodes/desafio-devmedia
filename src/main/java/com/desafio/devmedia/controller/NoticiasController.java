@@ -10,6 +10,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
+
 @Controller
 public class NoticiasController {
 
@@ -30,21 +32,21 @@ public class NoticiasController {
     }
 
     @PostMapping("/noticias")
-    public ModelAndView cadastrar(@Valid Noticias noticias,
-                                  @RequestParam("categoria") String categoriaSelecionada,
-                                  BindingResult result) {
+    public ModelAndView cadastrar(@Valid Noticias noticias, BindingResult result                                  ,
+                                   @RequestParam(value = "categoria", required = false) String categoriaSelecionada) {
         ModelAndView mv = new ModelAndView("noticias");
 
         Categoria categoria = categoriaService.nome(categoriaSelecionada);
-
         noticias.setCategoria(categoria);
 
         if (result.hasErrors()) {
+            mv.addObject("errors", result.getAllErrors());
+            mv.addObject("categorias", categoriaService.listar());
             return mv;
         }
 
         noticiaService.save(noticias);
-        return mv;
+        return new ModelAndView("redirect:/lista-noticias");
     }
 
     @GetMapping("/lista-noticias")

@@ -28,7 +28,7 @@ public class CategoriaController {
     public ModelAndView cadastrar(Categoria categoria) {
         ModelAndView mv = new ModelAndView("categoria");
         categoriaService.salvar(categoria);
-        return mv;
+        return new ModelAndView("redirect:/noticias");
     }
 
 }

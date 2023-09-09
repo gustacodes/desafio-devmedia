@@ -15,7 +15,7 @@
     <h1>Lista de Notícias</h1>
     <form action="/lista-noticias" method="get">
         <div class="search">
-            <input type="text" name="busca" placeholder="Buscar notícia...">
+            <input type="text" name="busca" placeholder="Buscar notícia">
             <button id="search-button" type="submit">Buscar</button>
         </div>
     </form>
@@ -24,7 +24,7 @@
         <!-- Card de exemplo (replicar conforme necessário) -->
         <div class="noticia-card" th:each="noticias : ${todas}">
             <h2>[[${noticias.titulo}]]</h2>
-            <span>[[${noticias.categoria.categoria}]]</span>
+            <p><b>Categoria:</b> [[${noticias.categoria.categoria}]]</p>
             <p>[[${noticias.conteudo}]]</p>
         </div>
     </div>

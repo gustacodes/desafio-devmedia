@@ -14,9 +14,9 @@
 <div class="container">
     <h1>Gerenciamento de Notícias</h1>
     <form action="/noticias" method="post" th:object="${noticias}">
-        <div th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
+        <div th:if="${errors != null}" class="alert alert-danger">
             <ul>
-                <li th:each="error : ${#fields.errors('*')}" th:text="${error}"></li>
+                <li th:each="error : ${errors}" th:text="${error.defaultMessage}"></li>
             </ul>
         </div>
         <div class="form-group">
@@ -26,8 +26,8 @@
 
         <div class="form-group">
             <label for="categoria">CATEGORIA</label>
-            <select id="categoria" name="categoria">
-                <option th:each="categoria : ${categorias}" th:text="${categoria.categoria}"></option>
+            <select id="categoria" name="categoria" th:field="*{categoria}">
+                <option th:each="categoria : ${categorias}" th:value="${categoria.categoria}" th:text="${categoria.categoria}"></option>
             </select>
         </div>
 
