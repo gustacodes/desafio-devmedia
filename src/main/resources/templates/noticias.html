@@ -14,7 +14,7 @@
 <div class="container">
     <h1>Gerenciamento de Notícias</h1>
     <form action="/noticias" method="post" th:object="${noticias}">
-        <div th:if="${errors != null}" class="alert alert-danger">
+        <div th:if="${errors != null}">
             <ul>
                 <li th:each="error : ${errors}" th:text="${error.defaultMessage}"></li>
             </ul>

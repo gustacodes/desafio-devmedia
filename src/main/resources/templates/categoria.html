@@ -12,13 +12,15 @@
     <a th:href="@{/lista-noticias}">Exibir Notícias</a>
 </div>
 <div class="container">
-    <h1>Criar Categoria</h1>
+    <h1>Criar categoria</h1>
     <form action="/categoria" th:method="post">
+
         <div class="form-group">
-            <label for="nome">Nome da Categoria:</label>
-            <input type="text" id="nome" name="categoria" required>
+            <label for="nome">Nome da categoria:</label>
+            <input type="text" id="nome" name="categoria">
+            <p th:each="error : ${erros}" th:text="${error.defaultMessage}"></p>
         </div>
-        <button type="submit">Criar Categoria</button>
+        <button type="submit">Criar</button>
     </form>
 </div>
 </body>

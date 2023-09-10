@@ -32,8 +32,9 @@ public class NoticiasController {
     }
 
     @PostMapping("/noticias")
-    public ModelAndView cadastrar(@Valid Noticias noticias, BindingResult result                                  ,
+    public ModelAndView cadastrar(@Valid Noticias noticias, BindingResult result,
                                    @RequestParam(value = "categoria", required = false) String categoriaSelecionada) {
+
         ModelAndView mv = new ModelAndView("noticias");
 
         Categoria categoria = categoriaService.nome(categoriaSelecionada);
@@ -52,10 +53,13 @@ public class NoticiasController {
     @GetMapping("/lista-noticias")
     public ModelAndView lista(@RequestParam(value = "busca", required = false) String busca) {
         ModelAndView mv = new ModelAndView("lista-noticias");
+
+        mv.addObject("categorias", categoriaService.listar());
+
         if (busca != null) {
-            mv.addObject("todas", noticiaService.buscarPorNome(busca));
+            mv.addObject("noticias", noticiaService.buscarPorNome(busca));
         } else {
-            mv.addObject("todas", noticiaService.listar());
+            mv.addObject("noticias", noticiaService.listar());
         }
 
         return mv;

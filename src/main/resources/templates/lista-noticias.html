@@ -13,7 +13,7 @@
 </div>
 <div class="container">
     <h1>Lista de Notícias</h1>
-    <form action="/lista-noticias" method="get">
+    <form action="/lista-noticias" method="get" >
         <div class="search">
             <input type="text" name="busca" placeholder="Buscar notícia">
             <button id="search-button" type="submit">Buscar</button>
@@ -21,11 +21,10 @@
     </form>
 
     <div class="noticias-container">
-        <!-- Card de exemplo (replicar conforme necessário) -->
-        <div class="noticia-card" th:each="noticias : ${todas}">
-            <h2>[[${noticias.titulo}]]</h2>
-            <p><b>Categoria:</b> [[${noticias.categoria.categoria}]]</p>
-            <p>[[${noticias.conteudo}]]</p>
+        <div class="noticia-card" th:each="noticia : ${noticias}">
+            <h2>[[${noticia.titulo}]]</h2>
+            <p><b>Categoria:</b> [[${noticia.categoria.categoria}]]</p>
+            <p>[[${noticia.conteudo}]]</p>
         </div>
     </div>
 </div>
